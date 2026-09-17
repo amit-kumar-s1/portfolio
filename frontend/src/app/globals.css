@@ -39,6 +39,7 @@ body {
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  cursor: crosshair;
 }
 
 h1,
@@ -152,4 +153,25 @@ h3,
   width: 5px;
   height: 5px;
   background: var(--color-violet);
+}
+
+button, 
+a, 
+[role="button"]{
+  cursor: pointer;
+}
+
+.resume-button {
+  display: inline-block;
+  border-radius: 9999px;
+  background-color: #4a4a52;
+  padding: 10px 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: white;
+  transition: background-color 0.2s;
+}
+
+.resume-button:hover {
+  background-color: #404044;
 }

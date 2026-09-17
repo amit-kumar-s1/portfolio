@@ -13,6 +13,7 @@ const routes = [
   { href: "/#writing", label: "Writing" },
   { href: "/#achievements", label: "Achievements" },
   { href: "/#contact", label: "Contact" },
+  { href: "https://drive.google.com/file/d/1G-IZmOrLXgaAA2_IIUAcZGhOsEs_bO9j/view?usp=sharing", label: "Resume", className: "resume-button" },
 ];
 
 export default function SiteNav({ name }: { name: string }) {
@@ -38,7 +39,15 @@ export default function SiteNav({ name }: { name: string }) {
         <ul className="hidden items-center gap-7 md:flex">
           {routes.map((route) => (
             <li key={route.href}>
-              <Link href={route.href} className="text-sm text-muted transition-colors hover:text-ink">
+              <Link
+                href={route.href}
+                target={route.label === "Resume" ? "_blank" : undefined}
+                rel={route.label === "Resume" ? "noopener noreferrer" : undefined}
+                className={
+                  route.className ||
+                  "text-sm text-muted transition-colors hover:text-ink"
+                }
+              >
                 {route.label}
               </Link>
             </li>
@@ -62,7 +71,10 @@ export default function SiteNav({ name }: { name: string }) {
             <li key={route.href}>
               <Link
                 href={route.href}
-                className="block border-b border-line-soft py-3 text-sm text-muted"
+                className={
+                  route.className ||
+                  "block border-b border-line-soft py-3 text-sm text-muted"
+                }
               >
                 {route.label}
               </Link>
