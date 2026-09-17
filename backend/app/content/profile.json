@@ -1,29 +1,29 @@
 {
-  "name": "Your Name",
-  "role": "Security engineer and ML practitioner",
+  "name": "Amit Kumar Saw",
+  "role": "Student with Crazy Mindset",
   "tagline": "I break systems to understand them, then teach models to defend them.",
-  "location": "Patna, India",
-  "summary": "I work where machine learning meets security: training models on messy real-world telemetry, then pressure-testing the systems those models run inside. Most of what I build starts as a question I could not find a good answer to, and ends as something I can hand to someone else and have it keep working.",
-  "focus": ["Applied machine learning", "Offensive security research", "Detection engineering"],
+  "location": "Ranchi, Jharkhand",
+  "summary": "Hi, I'm Amit! There is no especial meaning of my name, but yes I believe that having especial meaning doesn't create a person especial unless He's the one, me as a boy having no interest on any other things rather than on tech makes me especial! I loves to make my brain messed up on new techs and create some shocking electricity on my nerves to learn, enjoy, explore those techs.",
+  "focus": ["AI & ML", "Offensive security"],
   "skills": [
     {
-      "area": "Machine learning",
-      "items": ["PyTorch", "scikit-learn", "Transformers", "Feature engineering", "Model evaluation"]
-    },
-    {
-      "area": "Security",
-      "items": ["Web application testing", "Network analysis", "Reverse engineering", "Threat modelling", "Log and telemetry analysis"]
-    },
-    {
       "area": "Engineering",
-      "items": ["Python", "TypeScript", "FastAPI", "Next.js", "PostgreSQL", "Docker", "Linux"]
+      "items": ["Java", "Python", "SQL", "Linux"]
+    },
+    {
+      "area": "Tools",
+      "items": ["Git", "GitHub", "Kali Linux"]
+    },
+    {
+      "area": "Machine learning",
+      "items": ["PyTorch", "scikit-learn", "Transformers", "Model evaluation"]
     }
   ],
   "interests": [
-    "Adversarial robustness of deployed models",
-    "Detecting machine-generated content at scale",
-    "Privacy-preserving training on sensitive data",
-    "Automating the boring half of vulnerability research"
+    "Having interests in coding like solving DSA problems no matter if, I can't able to solve but love do it. I'm a AI enthsiasts...exploring new AI features and gaining knowledge about it and also implements concept to build something valuable product",
+    "Secondly I have interests to build some crazy stuffs that's make mine work autonomous as much as possible.",
+    "Apart from this, I enjoys being chill through grinding in BGMI.",
+    "'BEING ALONE' is my most sicking interests! This is the real Amit in work having ridiculous thoughts, insane ideas making it possible in reality."
   ],
   "goals": [
     "Publish a reproducible benchmark for intrusion-detection models on modern traffic",
@@ -31,10 +31,10 @@
     "Move from building models to shipping them under real production constraints"
   ],
   "links": [
-    { "label": "GitHub", "url": "https://github.com/your-handle" },
-    { "label": "LinkedIn", "url": "https://www.linkedin.com/in/your-handle" },
-    { "label": "Hugging Face", "url": "https://huggingface.co/your-handle" },
-    { "label": "Email", "url": "mailto:you@example.com" }
+    { "label": "GitHub", "url": "https://github.com/amit-kumar-s1" },
+    { "label": "LinkedIn", "url": "https://www.linkedin.com/in/amit-kumar-s1/" },
+    { "label": "Hugging Face", "url": "https://huggingface.co/not-human-s1" },
+    { "label": "Email", "url": "mailto:themagnetoyt@gmail.com" }
   ],
-  "resume_url": null
+  "resume_url": "https://drive.google.com/file/d/1G-IZmOrLXgaAA2_IIUAcZGhOsEs_bO9j/view?usp=sharing"
 }
