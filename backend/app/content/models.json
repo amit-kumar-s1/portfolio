@@ -1,0 +1,70 @@
+[
+  {
+    "slug": "flowguard-v2",
+    "name": "FlowGuard v2",
+    "description": "Flow-level intrusion detection for modern encrypted traffic.",
+    "problem": "Signature-based detection misses anything it has not seen, and most published IDS models are benchmarked on traffic that no longer resembles a real network.",
+    "architecture": "Gradient-boosted trees over 41 flow-level features, with a temporal aggregation window and per-host normalisation.",
+    "dataset": "CIC-IDS2017 plus a private capture set, deduplicated and rebalanced to avoid the label leakage present in the original splits.",
+    "metrics": [
+      { "label": "Precision", "value": "0.94" },
+      { "label": "Recall", "value": "0.89" },
+      { "label": "False positives", "value": "0.4 per million flows" }
+    ],
+    "tech": ["XGBoost", "Python", "ONNX"],
+    "status": "published",
+    "repo_url": "https://github.com/your-handle/flowguard",
+    "hub_url": "https://huggingface.co/your-handle/flowguard-v2",
+    "demo_url": null
+  },
+  {
+    "slug": "phishsense",
+    "name": "PhishSense",
+    "description": "Classifies phishing emails from headers and body text together.",
+    "problem": "Body-only classifiers are easy to evade by rewriting copy. Header signals are harder to fake but noisy on their own.",
+    "architecture": "DistilBERT encoder over the body, concatenated with 18 engineered header features, joined by a small MLP head.",
+    "dataset": "Public phishing corpora combined with a hand-labelled set of 4,000 messages from a live mailbox.",
+    "metrics": [
+      { "label": "F1", "value": "0.96" },
+      { "label": "Latency", "value": "12 ms on CPU" }
+    ],
+    "tech": ["PyTorch", "Transformers", "FastAPI"],
+    "status": "published",
+    "repo_url": "https://github.com/your-handle/phishsense",
+    "hub_url": "https://huggingface.co/your-handle/phishsense",
+    "demo_url": null
+  },
+  {
+    "slug": "binsim",
+    "name": "BinSim",
+    "description": "Finds functions in a stripped binary that match a known vulnerable implementation.",
+    "problem": "The same vulnerable code gets vendored into dozens of firmware images under different compilers and optimisation levels, and byte-level matching fails immediately.",
+    "architecture": "Graph neural network over control-flow graphs, trained with a contrastive objective across compiler and optimisation variants of the same source.",
+    "dataset": "Functions compiled from open-source projects across four compilers and three optimisation levels.",
+    "metrics": [
+      { "label": "Recall@1", "value": "0.81" },
+      { "label": "Recall@10", "value": "0.93" }
+    ],
+    "tech": ["PyTorch Geometric", "Ghidra", "Python"],
+    "status": "training",
+    "repo_url": "https://github.com/your-handle/binsim",
+    "hub_url": null,
+    "demo_url": null
+  },
+  {
+    "slug": "sift",
+    "name": "Sift",
+    "description": "Ranks log lines by how unusual they are for that host.",
+    "problem": "Anomaly detection on logs usually drowns in novelty. Most new lines are new because software changed, not because something happened.",
+    "architecture": "Per-host template extraction followed by a sequence model over template transitions; scores deviation from that host's own history rather than a global baseline.",
+    "dataset": "Self-collected syslog from a lab fleet, no labels.",
+    "metrics": [
+      { "label": "Status", "value": "Evaluation in progress" }
+    ],
+    "tech": ["Python", "PyTorch", "Drain3"],
+    "status": "experimental",
+    "repo_url": "https://github.com/your-handle/sift",
+    "hub_url": null,
+    "demo_url": null
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "slug": "confidence-is-not-accuracy",
+    "title": "A confident model is not a correct one",
+    "summary": "Why calibration matters more than accuracy the moment a model touches a decision that costs something.",
+    "topic": "Machine learning",
+    "published": "2025-08-12",
+    "reading_minutes": 6,
+    "tags": ["calibration", "evaluation", "deployment"],
+    "body": "A classifier that is right 94% of the time sounds finished. It usually is not, because accuracy says nothing about the shape of the 6%.\n\n## What calibration actually means\n\nA calibrated model is one where, across every prediction it makes at 0.8 confidence, roughly 80% turn out correct. Most networks trained with cross-entropy are not calibrated. They are overconfident, and they are most overconfident exactly on the inputs that look least like the training set.\n\nThe practical result: your error rate is fine on average and terrible on the slice you care about.\n\n## How to see it\n\n- Bucket predictions by confidence and plot observed accuracy per bucket. A diagonal is good; a curve bending below it is overconfidence.\n- Report expected calibration error next to accuracy, always.\n- Split the reliability plot by the segments that matter operationally, not just overall.\n\n## What to do about it\n\nTemperature scaling on a held-out set is one parameter and usually recovers most of the gap. It does not fix the underlying representation, but it makes the confidence number mean something, and that is what lets you set a threshold and abstain below it.\n\nOnce a model can say \"I do not know\", you can route those cases to a human and stop pretending the remaining 6% is evenly distributed."
+  },
+  {
+    "slug": "reading-a-pcap-like-a-story",
+    "title": "Reading a capture like a story, not a spreadsheet",
+    "summary": "A repeatable order of operations for network captures, built from the mistakes I made doing it badly.",
+    "topic": "Security",
+    "published": "2025-05-30",
+    "reading_minutes": 8,
+    "tags": ["network", "forensics", "triage"],
+    "body": "Opening a capture and scrolling from packet one is the slowest possible way to understand it. Traffic has structure, and the structure tells you where to look.\n\n## Start at the top\n\nBegin with conversation statistics: who talked to whom, how much, and for how long. The interesting host is rarely the loudest one. It is usually the one with a strange ratio of bytes sent to bytes received, or the one that talks to a single external address at exact intervals.\n\n## Then narrow by question\n\n- Which endpoints appear only once in the whole capture?\n- Which TLS sessions have a certificate that nothing else on the network presents?\n- Where does plaintext survive, and does it contain anything that should not be there?\n\n## Only then read packets\n\nBy the time you open individual frames you should already have a hypothesis. Reading packets is how you confirm or kill it, not how you form it.\n\n## Keep a log\n\nWrite down what you ruled out and why. Half of forensics is not repeating the search you already did three hours ago."
+  },
+  {
+    "slug": "threat-model-before-features",
+    "title": "Write the threat model before the feature list",
+    "summary": "Security added at the end is a patch. Security decided at the start is an architecture.",
+    "topic": "Security",
+    "published": "2025-02-18",
+    "reading_minutes": 5,
+    "tags": ["threat modelling", "design"],
+    "body": "Every project I have retrofitted security into took longer than the ones where I spent an hour up front asking four questions.\n\n## The four questions\n\n- What am I building, described as data flows rather than features?\n- What can go wrong at each boundary where data changes hands?\n- What am I going to do about each of those?\n- Did I actually do it, and how would I know?\n\nThat is the whole method. It fits on one page and it survives contact with a real project.\n\n## Why it works\n\nThe expensive security problems are structural: a trust boundary in the wrong place, a secret that has to travel too far, a component that has to be trusted because the design gives it no alternative. None of those are fixable with a library at the end. All of them are cheap to move on a diagram."
+  },
+  {
+    "slug": "small-models-real-constraints",
+    "title": "The model was never the hard part",
+    "summary": "Notes from moving a fine-tune out of a notebook and into something that had to stay up.",
+    "topic": "Machine learning",
+    "published": "2024-12-04",
+    "reading_minutes": 7,
+    "tags": ["mlops", "deployment", "lessons"],
+    "body": "Training took two days. Everything after took two months.\n\n## What actually consumed the time\n\n- Deciding what happens when the input is malformed, empty, or in the wrong language.\n- Versioning the model alongside the preprocessing code, because they are one artefact and drift apart the moment you pretend otherwise.\n- Working out how anyone would notice if quality quietly degraded.\n- Latency, which turned out to be dominated by tokenisation and a synchronous database call, not by the forward pass.\n\n## The lesson I keep relearning\n\nA model is a function. A deployed model is a system with a function inside it, and the system is where the failures live. Budget accordingly: if the plan says one week of training and one week of everything else, the plan is wrong."
+  }
+]

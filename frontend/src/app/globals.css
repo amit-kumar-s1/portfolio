@@ -1,0 +1,155 @@
+@import "tailwindcss";
+
+/* ── Design tokens ───────────────────────────────────────────────────────────
+   Cinematic black-and-silver palette. Base is true black. Every surface is a
+   translucent silver-grey wash over it rather than a tinted colour, so panels
+   read as charcoal at any depth and every accent stays in the silver family.  */
+@theme {
+  --color-void: #000000;
+  --color-ink: #f2f2f4;
+  --color-muted: #a3a3ab;
+  --color-faint: #6b6b72;
+  --color-violet: #4a4a52;
+  --color-cyan: #d4d4d9;
+  --color-signal: #eceef2;
+  --color-amber: #97979f;
+
+  --color-line: rgba(196, 196, 204, 0.14);
+  --color-line-soft: rgba(196, 196, 204, 0.08);
+  --color-surface: rgba(255, 255, 255, 0.045);
+  --color-surface-strong: rgba(255, 255, 255, 0.08);
+
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-body: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Keeps anchored headings clear of the sticky header. */
+  scroll-padding-top: 6rem;
+}
+
+body {
+  background: var(--color-void);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+/* Visible, consistent keyboard focus everywhere. */
+:focus-visible {
+  outline: 2px solid var(--color-cyan);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection {
+  background: rgba(200, 200, 210, 0.35);
+  color: #fff;
+}
+
+/* ── Reveal on scroll ───────────────────────────────────────────────────────
+   Used only for the achievements timeline, where the motion communicates order.
+   The hidden state is applied by JavaScript after mount, so content stays
+   visible when scripts are blocked and when reduced motion is preferred.       */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    transition:
+      opacity 0.45s ease,
+      transform 0.45s ease;
+  }
+  .reveal[data-hidden="true"] {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+/* One orchestrated entrance, on page load, for the hero only. */
+@media (prefers-reduced-motion: no-preference) {
+  .enter {
+    animation: enter 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  @keyframes enter {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* The hero's pointer spotlight. Purely decorative, hidden from assistive tech. */
+.spotlight {
+  background:
+    radial-gradient(
+      420px circle at var(--x, 50%) var(--y, 40%),
+      rgba(210, 210, 218, 0.14),
+      transparent 70%
+    ),
+    radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.11) 1px, transparent 0);
+  background-size:
+    100% 100%,
+    32px 32px;
+  mask-image: radial-gradient(70% 60% at 50% 40%, #000 30%, transparent 100%);
+}
+
+/* Long-form article body. */
+.prose-body p {
+  color: var(--color-muted);
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+  max-width: 68ch;
+}
+
+.prose-body h2 {
+  font-size: 1.35rem;
+  color: var(--color-ink);
+  margin: 2.5rem 0 0.9rem;
+}
+
+.prose-body ul {
+  margin: 0 0 1.5rem;
+  max-width: 68ch;
+}
+
+.prose-body li {
+  color: var(--color-muted);
+  line-height: 1.7;
+  padding-left: 1.1rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.prose-body li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 5px;
+  height: 5px;
+  background: var(--color-violet);
+}

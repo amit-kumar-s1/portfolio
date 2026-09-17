@@ -1,0 +1,40 @@
+{
+  "name": "Your Name",
+  "role": "Security engineer and ML practitioner",
+  "tagline": "I break systems to understand them, then teach models to defend them.",
+  "location": "Patna, India",
+  "summary": "I work where machine learning meets security: training models on messy real-world telemetry, then pressure-testing the systems those models run inside. Most of what I build starts as a question I could not find a good answer to, and ends as something I can hand to someone else and have it keep working.",
+  "focus": ["Applied machine learning", "Offensive security research", "Detection engineering"],
+  "skills": [
+    {
+      "area": "Machine learning",
+      "items": ["PyTorch", "scikit-learn", "Transformers", "Feature engineering", "Model evaluation"]
+    },
+    {
+      "area": "Security",
+      "items": ["Web application testing", "Network analysis", "Reverse engineering", "Threat modelling", "Log and telemetry analysis"]
+    },
+    {
+      "area": "Engineering",
+      "items": ["Python", "TypeScript", "FastAPI", "Next.js", "PostgreSQL", "Docker", "Linux"]
+    }
+  ],
+  "interests": [
+    "Adversarial robustness of deployed models",
+    "Detecting machine-generated content at scale",
+    "Privacy-preserving training on sensitive data",
+    "Automating the boring half of vulnerability research"
+  ],
+  "goals": [
+    "Publish a reproducible benchmark for intrusion-detection models on modern traffic",
+    "Contribute upstream to an open-source security tool I use every week",
+    "Move from building models to shipping them under real production constraints"
+  ],
+  "links": [
+    { "label": "GitHub", "url": "https://github.com/your-handle" },
+    { "label": "LinkedIn", "url": "https://www.linkedin.com/in/your-handle" },
+    { "label": "Hugging Face", "url": "https://huggingface.co/your-handle" },
+    { "label": "Email", "url": "mailto:you@example.com" }
+  ],
+  "resume_url": null
+}

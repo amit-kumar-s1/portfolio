@@ -1,0 +1,50 @@
+[
+  {
+    "title": "OSCP",
+    "issuer": "OffSec",
+    "kind": "certification",
+    "date": "2025-06-14",
+    "detail": "Twenty-four hour practical exam: five hosts, full exploitation chain and report.",
+    "url": null
+  },
+  {
+    "title": "Security engineering intern",
+    "issuer": "A security team you worked with",
+    "kind": "internship",
+    "date": "2025-01-20",
+    "detail": "Shipped detection rules for a technique family that previously had none, cutting triage time on that alert class by roughly half.",
+    "url": null
+  },
+  {
+    "title": "Runner-up, national CTF finals",
+    "issuer": "Inter-college security competition",
+    "kind": "award",
+    "date": "2024-11-09",
+    "detail": "Second of 140 teams. Solved both binary exploitation finals challenges.",
+    "url": null
+  },
+  {
+    "title": "Workshop paper on gradient inversion defences",
+    "issuer": "Accepted at a security workshop",
+    "kind": "research",
+    "date": "2024-08-02",
+    "detail": "Measured the accuracy cost of three published defences under an identical attack budget.",
+    "url": null
+  },
+  {
+    "title": "First CVE credited",
+    "issuer": "MITRE",
+    "kind": "milestone",
+    "date": "2024-03-11",
+    "detail": "Authentication bypass in an open-source admin panel, disclosed and patched within 30 days.",
+    "url": null
+  },
+  {
+    "title": "TryHackMe top 1%",
+    "issuer": "TryHackMe",
+    "kind": "milestone",
+    "date": "2023-09-01",
+    "detail": "Where most of this started.",
+    "url": null
+  }
+]
