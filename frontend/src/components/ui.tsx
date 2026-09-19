@@ -33,6 +33,7 @@ const statusTone: Record<ProjectStatus | ModelStatus, { dot: string; label: stri
   "in-progress": { dot: "bg-amber", label: "In progress" },
   archived: { dot: "bg-faint", label: "Archived" },
   research: { dot: "bg-cyan", label: "Research" },
+  completed: {label: "Completed",dot: "bg-emerald-400",},
   published: { dot: "bg-signal", label: "Published" },
   training: { dot: "bg-amber", label: "Training" },
   experimental: { dot: "bg-cyan", label: "Experimental" },
@@ -40,7 +41,10 @@ const statusTone: Record<ProjectStatus | ModelStatus, { dot: string; label: stri
 };
 
 export function StatusBadge({ status }: { status: ProjectStatus | ModelStatus }) {
-  const tone = statusTone[status];
+  const tone = statusTone[status] ?? {
+    dot: "bg-faint",
+    label: status,
+  };
   return (
     <span className="inline-flex items-center gap-2 text-xs text-muted">
       <span className={`h-1.5 w-1.5 rounded-full ${tone.dot}`} aria-hidden="true" />

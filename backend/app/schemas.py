@@ -5,7 +5,7 @@ from typing import Literal
 
 from pydantic import BaseModel, EmailStr, Field, field_validator
 
-ProjectStatus = Literal["live", "in-progress", "archived", "research"]
+ProjectStatus = Literal["live", "in-progress", "archived", "research", "completed"]
 ModelStatus = Literal["published", "training", "experimental", "deprecated"]
 
 

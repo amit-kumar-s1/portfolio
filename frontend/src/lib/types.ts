@@ -1,4 +1,4 @@
-export type ProjectStatus = "live" | "in-progress" | "archived" | "research";
+export type ProjectStatus = "live" | "in-progress" | "archived" | "research" | "completed";
 export type ModelStatus = "published" | "training" | "experimental" | "deprecated";
 
 export interface Link {
